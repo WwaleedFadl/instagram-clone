@@ -40,7 +40,7 @@ export default function Sidebar() {
     <Box
       height={"100vh"}
       borderRight={"1px solid"}
-      borderColor={"whiteAlph.300"}
+      borderColor={"whiteAlpha.300"}
       py={8}
       position={"sticky"}
       top={0}

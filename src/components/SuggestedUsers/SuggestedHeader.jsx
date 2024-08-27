@@ -5,7 +5,7 @@ const SuggestedHeader = () => {
   return (
     <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"}>
       <Flex alignItems={"center"} gap={2}>
-        <Avatar name='waleed fad' size={"lg"} src='/images/waleed2.jpg' />
+        <Avatar name="waleed fad" size={"lg"} src="/images/waleed2.jpg" />
         <Text fontSize={12} flexWrap={"bold"}>
           Waleed Fadl
         </Text>
@@ -17,7 +17,8 @@ const SuggestedHeader = () => {
         fontWeight={"medium"}
         color={"blue.400"}
         style={{ textDecoration: "none" }}
-        cursor={"pointer"}>
+        cursor={"pointer"}
+      >
         Log out
       </Link>
     </Flex>
