@@ -5,10 +5,10 @@ import ProfilePosts from "../../components/Profile/ProfilePosts";
 
 export default function ProfilePage() {
   return (
-    <Container maxW="container-lg" py={5}>
+    <Container maxW="container-lg" py={5} px={8}>
       <Flex
         py={10}
-        px={4}
+        px={5}
         pl={{ base: 4, md: 10 }}
         w={"full"}
         mx={"auto"}
