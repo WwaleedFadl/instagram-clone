@@ -9,7 +9,6 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalHeader,
   ModalOverlay,
   Text,
   useDisclosure,
@@ -17,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 import { AiFillHeart } from "react-icons/ai";
 import { MdDelete, MdOutlineInsertComment } from "react-icons/md";
+import Comment from "../Comment/Comment";
+import PostFooter from "../FeedPosts/PostFooter";
 
 export default function ProfilePost({ img }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -133,8 +134,8 @@ export default function ProfilePost({ img }) {
                   />
                   <Comment
                     createdAt="1d ago"
-                    username="mahmoud fadl"
-                    profilePic="/images/1.jpg"
+                    username="mohamed fadl"
+                    profilePic="/images/2.jpg"
                     text={"this is a comment place....."}
                   />
                   <Comment
@@ -144,6 +145,8 @@ export default function ProfilePost({ img }) {
                     text={"this is a comment place....."}
                   />
                 </VStack>
+                <Divider my={4} bg={"gray.800"} />
+                <PostFooter isProfilePage={true} />
               </Flex>
             </Flex>
           </ModalBody>
