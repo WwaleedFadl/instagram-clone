@@ -39,7 +39,7 @@ export default function Sidebar() {
       text: "Create",
     },
     {
-      icon: <Avatar size={"sm"} name='Waleed Fadl' src='/images/waleed2.jpg' />,
+      icon: <Avatar size={"sm"} name="Waleed Fadl" src="/images/waleed2.jpg" />,
       text: "Profile",
       link: "/WaleedFadl",
     },
@@ -54,14 +54,16 @@ export default function Sidebar() {
       position={"sticky"}
       top={0}
       left={0}
-      px={{ base: 2, md: 4 }}>
+      px={{ base: 2, md: 4 }}
+    >
       <Flex direction={"column"} gap={10} width={"full"} height={"full"}>
         <Link
           to={"/"}
           as={RouterLink}
           pl={2}
           display={{ base: "none", md: "block" }}
-          cursor={"pointer"}>
+          cursor={"pointer"}
+        >
           <InstagramLogo />
         </Link>
 
@@ -75,7 +77,8 @@ export default function Sidebar() {
             bg: "whiteAlph.200",
           }}
           cursor={"pointer"}
-          w={10}>
+          w={10}
+        >
           <InstagramMobileLogo />
         </Link>
         <Flex direction={"column"} gap={5} cursor={"pointer"}>
@@ -84,10 +87,11 @@ export default function Sidebar() {
               key={index}
               hasArrow
               label={item.text}
-              placement='right'
+              placement="right"
               ml={1}
               openDelay={500}
-              display={{ base: "block", md: "none" }}>
+              display={{ base: "block", md: "none" }}
+            >
               <LinkBox
                 display={"flex"}
                 to={item.link || null}
@@ -98,7 +102,8 @@ export default function Sidebar() {
                 borderRadius={6}
                 p={2}
                 w={{ base: 10, md: "full" }}
-                justifyContent={{ base: "center", md: "flex-start" }}>
+                justifyContent={{ base: "center", md: "flex-start" }}
+              >
                 {item.icon}
                 <Box display={{ base: "none", md: "block" }}>{item.text}</Box>
               </LinkBox>
@@ -111,10 +116,11 @@ export default function Sidebar() {
         <Tooltip
           hasArrow
           label={"Logout"}
-          placement='right'
+          placement="right"
           ml={1}
           openDelay={500}
-          display={{ base: "block", md: "none" }}>
+          display={{ base: "block", md: "none" }}
+        >
           <Flex
             onClick={handleLogout}
             alignItems={"center"}
@@ -124,13 +130,15 @@ export default function Sidebar() {
             p={2}
             w={{ base: 10, md: "full" }}
             justifyContent={{ base: "center", md: "flex-start" }}
-            mt={"auto"}>
+            mt={"auto"}
+          >
             <BiLogOut size={25} />
             <Button
               display={{ base: "none", md: "block" }}
               variant={"ghost"}
               _hover={{ bg: "transparent" }}
-              isLoading={isLoggingOut}>
+              isLoading={isLoggingOut}
+            >
               Logout
             </Button>
           </Flex>
