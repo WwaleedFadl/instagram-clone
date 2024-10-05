@@ -7,7 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function PageLayout({ children }) {
   const { pathname } = useLocation();
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const canRenderSidebar = pathname !== "/auth" && user;
   const canRenderNavBar = !user && !loading && pathname !== "/auth";
 
