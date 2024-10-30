@@ -13,14 +13,17 @@ const App = () => {
     <PageLayout>
       <Routes>
         <Route
-          path={"/"}
+          path="/"
           element={authUser ? <HomePage /> : <Navigate to="/auth" />}
         />
         <Route
-          path={"/auth"}
+          path="/auth"
           element={!authUser ? <AuthPage /> : <Navigate to="/" />}
         />
-        <Route path={"/:username"} element={<ProfilePage />} />
+        <Route
+          path="/:username"
+          element={<ProfilePage />}
+        />
       </Routes>
     </PageLayout>
   );

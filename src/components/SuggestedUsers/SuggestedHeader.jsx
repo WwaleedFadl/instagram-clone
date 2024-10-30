@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 const SuggestedHeader = () => {
   const { handleLogout, isLoggingOut } = useLogout();
   const authUser = useAuthStore((state) => state.user);
+
+  if (!authUser) return null;
+
   return (
     <Flex
       justifyContent={"space-between"}
@@ -19,7 +22,7 @@ const SuggestedHeader = () => {
         <Link to={`${authUser.username}`}>
           <Avatar
             size={"lg"}
-            src={authUser.profileURL}
+            src={authUser.profilePiUrl}
           />
         </Link>
         <Link to={`${authUser.username}`}>
@@ -33,14 +36,11 @@ const SuggestedHeader = () => {
       </Flex>
       <Button
         size={"xs"}
-        // as={RouterLink}
-        // to={"/auth"}
         background={"transparent"}
         _hover={{ background: "transparent" }}
         fontSize={14}
         fontWeight={"medium"}
         color={"blue.400"}
-        // style={{ textDecoration: "none" }}
         onClick={handleLogout}
         isLoading={isLoggingOut}
         cursor={"pointer"}
