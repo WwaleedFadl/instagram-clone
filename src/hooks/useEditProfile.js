@@ -8,11 +8,13 @@ import useUserProfileStore from "../store/useProfileStore";
 
 
 const useEditProfile = () => {
+
 	const [isUpdating, setIsUpdating] = useState(false);
 	const authUser = useAuthStore((state) => state.user);
 	const setAuthUser = useAuthStore((state) => state.setUser);
 	const setUserProfile = useUserProfileStore((state) => state.setUserProfile);
 	const showToast = useShowToast();
+
 	const editProfile = async (inputs, selectedFile) => {
 		if (isUpdating || !authUser) return;
 		setIsUpdating(true);

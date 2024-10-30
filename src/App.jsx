@@ -8,7 +8,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const App = () => {
   const [authUser] = useAuthState(auth);
-
   return (
     <PageLayout>
       <Routes>

@@ -29,17 +29,16 @@ const EditProfile = ({ isOpen, onClose }) => {
   });
   const authUser = useAuthStore((state) => state.user);
   const fileRef = useRef(null);
-   const { selectedFile, handleImageChange, setSelectedFile } = usePreviewImg();
+  const { selectedFile, handleImageChange, setSelectedFile } = usePreviewImg();
   const { isUpdating, editProfile } = useEditProfile();
   const showToast = useShowToast();
- 
-  const  handleEditProfile =async () => {
+
+  const handleEditProfile = async () => {
     try {
       await editProfile(inputs, selectedFile);
       setSelectedFile(null);
       onClose();
     } catch (error) {
-      console.log(error)
       showToast("Error", error.message, "error");
     }
   }
