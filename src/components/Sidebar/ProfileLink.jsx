@@ -1,6 +1,6 @@
-import { Avatar, Box, Link, Tooltip } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import useAuthStore from "../../store/authStore";
+import { Avatar, Box, Link, Tooltip } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
+import useAuthStore from '../../store/authStore';
 
 export default function ProfileLink() {
   const authUser = useAuthStore((state) => state.user);
@@ -11,25 +11,23 @@ export default function ProfileLink() {
       label='Profile'
       ml={1}
       openDelay={500}
-      display={{ base: "block", md: "none" }}
-    >
+      display={{ base: 'block', md: 'none' }}>
       <Link
-        display={"flex"}
+        display={'flex'}
         to={`/${authUser?.username}`}
         as={RouterLink}
-        alignItems={"center"}
+        alignItems={'center'}
         gap={4}
-        _hover={{ bg: "whiteAlpha.400" }}
+        _hover={{ bg: 'whiteAlpha.400' }}
         borderRadius={6}
         p={2}
-        w={{ base: 10, md: "full" }}
-        justifyContent={{ base: "center", md: "flex-start" }}
-      >
+        w={{ base: 10, md: 'full' }}
+        justifyContent={{ base: 'center', md: 'flex-start' }}>
         <Avatar
-          size={"sm"}
-          src={authUser?.profilePiUrl || ""}
+          size={'sm'}
+          src={authUser?.profilePiUrl || ''}
         />
-        <Box display={{ base: "none", md: "block" }}>Home</Box>
+        <Box display={{ base: 'none', md: 'block' }}>Profile</Box>
       </Link>
     </Tooltip>
   );

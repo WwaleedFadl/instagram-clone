@@ -1,7 +1,7 @@
-import { VStack, Flex, Text, Box, Link } from "@chakra-ui/react";
-import SuggestedHeader from "./SuggestedHeader";
-import SuggestedUser from "./SuggestedUser";
-import useGetSuggestedUsers from "../../hooks/useGetSuggestedUsers";
+import { VStack, Flex, Text, Box, Link } from '@chakra-ui/react';
+import SuggestedHeader from './SuggestedHeader';
+import SuggestedUser from './SuggestedUser';
+import useGetSuggestedUsers from '../../hooks/useGetSuggestedUsers';
 
 const SuggestedUsers = () => {
   const { isLoading, suggestedUsers } = useGetSuggestedUsers();
@@ -13,28 +13,24 @@ const SuggestedUsers = () => {
     <VStack
       py={8}
       px={4}
-      gap={4}
-    >
+      gap={4}>
       <SuggestedHeader />
       {suggestedUsers.length !== 0 && (
         <Flex
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          w={"full"}
-        >
+          alignItems={'center'}
+          justifyContent={'space-between'}
+          w={'full'}>
           <Text
             fontSize={12}
-            fontWeight={"bold"}
-            color={"gray.500"}
-          >
+            fontWeight={'bold'}
+            color={'gray.500'}>
             Suggested for you
           </Text>
           <Text
             fontSize={12}
-            fontWeight={"bold"}
-            _hover={{ color: "gray.400" }}
-            cursor={"pointer"}
-          >
+            fontWeight={'bold'}
+            _hover={{ color: 'gray.400' }}
+            cursor={'pointer'}>
             See All
           </Text>
         </Flex>
@@ -48,17 +44,15 @@ const SuggestedUsers = () => {
 
       <Box
         fontSize={12}
-        color={"gray.500"}
+        color={'gray.500'}
         mt={5}
-        alignSelf={"start"}
-      >
-        &copy; 2024 Built by{" "}
+        alignSelf={'start'}>
+        &copy; 2024 Built by{' '}
         <Link
           href='https://github.com/WwaleedFadl'
           target='_blank'
           color='blue.500'
-          fontSize={14}
-        >
+          fontSize={14}>
           Waleed Fadl
         </Link>
       </Box>

@@ -1,17 +1,17 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 //
 
 const firebaseConfig = {
-  apiKey: "AIzaSyABFBJDfg5vCTQ7N2p1P5m7zSjqkaY8xc4",
-  authDomain: "my-insta-clone-571ed.firebaseapp.com",
-  projectId: "my-insta-clone-571ed",
-  storageBucket: "my-insta-clone-571ed.appspot.com",
-  messagingSenderId: "1066699913578",
-  appId: "1:1066699913578:web:ef22af660862a228b5cd13",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 //

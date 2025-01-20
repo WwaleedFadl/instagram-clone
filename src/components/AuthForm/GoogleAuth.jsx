@@ -1,9 +1,9 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { auth, firestore } from "../../firebase/firebase";
-import useShowToast from "../../hooks/useShowToast";
-import useAuthStore from "../../store/authStore";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { Flex, Image, Text } from '@chakra-ui/react';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { auth, firestore } from '../../firebase/firebase';
+import useShowToast from '../../hooks/useShowToast';
+import useAuthStore from '../../store/authStore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 const GoogleAuth = ({ prefix }) => {
   const [signInWithGoogle, error] = useSignInWithGoogle(auth);
@@ -14,56 +14,57 @@ const GoogleAuth = ({ prefix }) => {
     try {
       const newUser = await signInWithGoogle();
       if (!newUser && error) {
-        showToast("Error", error.message, "error");
+        showToast('Error', error.message, 'error');
         return;
       }
 
-      const userRef = doc(firestore, "users", newUser.user.uid);
+      const userRef = doc(firestore, 'users', newUser.user.uid);
       const userSnap = await getDoc(userRef);
 
       if (userSnap.exists()) {
         // login
         const userDoc = userSnap.data();
-        localStorage.setItem("user-info", JSON.stringify(userDoc));
+        localStorage.setItem('user-info', JSON.stringify(userDoc));
         loginUser(userDoc);
       } else {
         const userDocument = {
           uid: newUser.user.uid,
           email: newUser.user.email,
-          username: newUser.user.email.split("@")[0],
+          username: newUser.user.email.split('@')[0],
           fullName: newUser.user.displayName,
-          bio: "",
+          bio: '',
           profilePicUrl: newUser.user.photoURL,
           followers: [],
           following: [],
           posts: [],
           createdAt: Date.now(),
         };
-        await setDoc(doc(firestore, "users", newUser.user.uid), userDocument);
-        localStorage.setItem("user-info", JSON.stringify(userDocument));
+        await setDoc(
+          doc(firestore, 'users', newUser.user.uid),
+          userDocument
+        );
+        localStorage.setItem('user-info', JSON.stringify(userDocument));
         loginUser(userDocument);
       }
     } catch (error) {
-      showToast("Error", error.message, "error");
+      showToast('Error', error.message, 'error');
       return;
     }
   };
   return (
     <Flex
-      alignItems={"center"}
-      justifyContent={"center"}
-      cursor={"pointer"}
-      onClick={handleGoogleAuth}
-    >
+      alignItems={'center'}
+      justifyContent={'center'}
+      cursor={'pointer'}
+      onClick={handleGoogleAuth}>
       <Image
-        src={"/images/google.png"}
+        src={'/images/google.png'}
         w={5}
-        alt={"google logo"}
+        alt={'google logo'}
       />
       <Text
         mx={2}
-        color={"blue.500"}
-      >
+        color={'blue.500'}>
         {prefix} in with google
       </Text>
     </Flex>

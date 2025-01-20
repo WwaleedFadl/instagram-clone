@@ -1,68 +1,74 @@
-import { useEffect, useState } from "react";
 import {
   Box,
   Container,
   Flex,
   Skeleton,
   SkeletonCircle,
+  Text,
   VStack,
-} from "@chakra-ui/react";
-import FeedPost from "./FeedPost";
-
+} from '@chakra-ui/react';
+import FeedPost from './FeedPost';
+import useGetFeedPost from '../../hooks/useGetFeedPost';
+import React from 'react';
+import { Link } from 'react-router-dom';
 export default function FeedPosts() {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  const { isLoading, posts } = useGetFeedPost();
 
   return (
-    <Container maxW={"container.sm"} py={10} px={2}>
+    <Container
+      maxW={'container.sm'}
+      py={10}
+      px={2}>
       {isLoading &&
-        [0, 1, 2, 3].map((_, index) => {
+        [0, 1, 2].map((_, index) => {
           return (
-            <VStack key={index} gap={4} alignItems={"flex-start"} mb={10}>
+            <VStack
+              key={index}
+              gap={4}
+              alignItems={'flex-start'}
+              mb={10}>
               <Flex gap={2}>
                 <SkeletonCircle size='10' />
-                <VStack gap={2} alignItems={"flex-start"}>
-                  <Skeleton height='10px' w={"200px"} />
-                  <Skeleton height='10px' w={"200px"} />
+                <VStack
+                  gap={2}
+                  alignItems={'flex-start'}>
+                  <Skeleton
+                    height='10px'
+                    w={'200px'}
+                  />
+                  <Skeleton
+                    height='10px'
+                    w={'200px'}
+                  />
                 </VStack>
               </Flex>
-              <Skeleton w={"full"}>
-                <Box h={"500px"}>Content wrapped</Box>
+              <Skeleton w={'full'}>
+                <Box h={'400px'}>Content wrapped</Box>
               </Skeleton>
             </VStack>
           );
         })}
-      {!isLoading && (
+      {!isLoading &&
+        posts.length > 0 &&
+        posts.map((post) => (
+          <FeedPost
+            post={post}
+            key={post.id}
+          />
+        ))}
+
+      {!isLoading && posts.length === 0 && (
         <>
-          <FeedPost
-            username='Mahmoud fadl'
-            img='/images/2.jpg'
-            avatar='/images/8.jpg'
-          />
-          <FeedPost
-            username='Mohamed fadl'
-            img='/images/4.jpg'
-            avatar='/images/9.jpg'
-          />
-          <FeedPost
-            username='Mahmoud fadl'
-            img='/images/2.jpg'
-            avatar='/images/8.jpg'
-          />
-          <FeedPost
-            username='Mohamed fadl'
-            img='/images/7.jpg'
-            avatar='/images/9.jpg'
-          />
-          <FeedPost
-            username='Mohamed fadl'
-            img='/images/5.jpg'
-            avatar='/images/9.jpg'
-          />
+          <Text fontSize={'md'}>
+            Hey Buddy you have not follow any body yet , you could follow
+            me on my account
+          </Text>
+          <Flex
+            color={'blue.400'}
+            alignItems={'center'}
+            justifyContent={'center'}>
+            <Link to={'/waleed'}>waleed fadl</Link>
+          </Flex>
         </>
       )}
     </Container>
